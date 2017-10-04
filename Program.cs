@@ -21,6 +21,12 @@ namespace lista
                 /// Busca y regresa el primer el elemento en la BD que cumpla con la condición
                 /// si no lo encuentra devuelve null
                 var e = bd.Elementos.FirstOrDefault(x => x.Nombre == "PLATANOS");
+                
+                /// Filtra los elementos que contenga el argumento buscado y lo convierte en una Lista (List<Elemento> la collección)
+                /// si no se ecuentra crea una lista vacia o sea con cero elementos
+                var eWhere = bd.Elementos
+                                .Where( x => x.Nombre.Contains("PLATA"))
+                                .ToList();
 
 
                 /// Si no es nulo, quiere decir que si encontró el elemento y lo puede borrar
